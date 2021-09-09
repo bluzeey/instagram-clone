@@ -8,7 +8,7 @@ export default function Login() {
     const {Firebase} = useContext(FirebaseContext)
     const [emailAddress,setEmailAddress]=useState('')
     const [password,setPassword]=useState('')
-    const [error,setError]=useState('')
+    const [Error,setError]=useState('')
     const isInvalid=emailAddress===''||password===''
     
     const handleLogin=async (event)=>{
@@ -38,7 +38,7 @@ export default function Login() {
              <h1 className="flex justify-center w-full">
                  <img src="../images/logo.png" alt="Instagram" className="mt-2 w-6/12 mb-4" />
              </h1>
-             {error && <p className="mb-4 text-xs text-red-500">{error}</p>}
+             {Error && <p className="mb-4 text-xs text-red-500">{Error}</p>}
              <form onSubmit={handleLogin} method="POST">
                  <input 
                   type="text"
