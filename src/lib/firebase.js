@@ -1,9 +1,8 @@
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
-import 'firebase/compat/firestore';
-//import { seedDatabase } from '../seed';
+import Firebase from 'firebase/compat/app';
+import 'firebase/firestore';
+import 'firebase/auth';
 
-const config={
+const config = {
   apiKey: "AIzaSyAeYCFJVRqAmk24QXhdqQCkZLOyCx9j9Vk",
   authDomain: "instagram-clone-9e2ac.firebaseapp.com",
   projectId: "instagram-clone-9e2ac",
@@ -13,10 +12,7 @@ const config={
   measurementId: "G-KT4THSGG3C"
 }
 
-const Firebase =firebase.initializeApp(config);
-const FieldValue=firebase.firestore;
+const firebase = Firebase.initializeApp(config);
+const { FieldValue } = Firebase.firestore;
 
-
-//seedDatabase(Firebase);
-
-export {Firebase,FieldValue}
+export { firebase, FieldValue };
