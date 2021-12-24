@@ -22,7 +22,7 @@ function Post({id,username,userImg,img,caption}) {
                 <div className="flex space-x-4">
                 <HeartIcon className="Btn"/>
                 <ChatIcon className="Btn"/>
-                <PaperAirplaneIcon className="Btn"/>
+                <PaperAirplaneIcon className="Btn rotate-45"/>
                 </div>
                 <BookmarkIcon className="Btn"/>
             </div>
