@@ -1,5 +1,5 @@
 module.exports={
     images:{
-        domains:["logos-world.net"]
+        domains:["logos-world.net","cdn.fakercloud.com"]
     }
 }
