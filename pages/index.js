@@ -7,7 +7,7 @@ export default function Home() {
     overflow-y-scroll scrollbar-hide">
       <Head>
         <title>Instagram v2</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/instagramlogo.png" />
       </Head>
       <Header/>
       <Feed/>
