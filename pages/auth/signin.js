@@ -5,9 +5,9 @@ function signin({providers}) {
         <>
            <Header/>
            <div className="flex flex-col items-center justify-center
-            min-h-screen py-2 mt-56 px-14 text-center">
+            min-h-screen py-2 -mt-56 px-14 text-center">
            <img className="w-80" src="https://logos-world.net/wp-content/uploads/2020/04/Instagram-Logo-700x394.png"/>
-           <div className="mt-40">
+           <div className="mt-4">
            <p>It is not a real app but for educational purposes.</p>
            {Object.values(providers).map((provider)=>(
                <div key={provider.name} className="">
