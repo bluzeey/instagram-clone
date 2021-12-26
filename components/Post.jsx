@@ -43,7 +43,7 @@ function Post({id,username,userImg,img,caption}) {
     ,[db,id])
     useEffect(() =>
         setHasLiked(
-            likes.findIndex(like=>like.id===session.user?.uid)!==-1),
+            likes?.findIndex(like=>like.id===session.user?.uid)!==-1),
     [likes]);
 
     const likePost=async()=>{
