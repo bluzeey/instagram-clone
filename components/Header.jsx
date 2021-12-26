@@ -2,19 +2,25 @@ import Image from 'next/image'
 import { SearchIcon,PlusCircleIcon,UserGroupIcon,HeartIcon,PaperAirplaneIcon,MenuIcon} from '@heroicons/react/outline'
 import {HomeIcon} from '@heroicons/react/solid'
 import { useSession,signOut,signIn } from "next-auth/react"
+import {useRouter} from 'next/router'
+import {useRecoilState} from "recoil";
+import {modalState} from "../atoms/modalAtom"
 
 function Header() {
+  const router=useRouter()
   const { data: session, status } = useSession();
-  console.log(session)
+  const [open,setOpen]=useRecoilState(modalState)
+
+
   return (
         <div className="shadow-sm border-b bg-white sticky-top z-50">
             <div className="flex justify-between bg-white max-w-6xl mx-5 xl:mx-auto">
-              <div className="w-24 relative hidden lg:inline-grid">
+              <div onClick={()=>router.push('/')} className="w-24 relative hidden lg:inline-grid">
                <Image src="https://logos-world.net/wp-content/uploads/2020/04/Instagram-Logo-700x394.png"
                 layout="fill"
                 objectFit='contain'/>
               </div>
-              <div className="w-10 relative lg:hidden cursor-pointer flex-shrink-0">
+              <div onClick={()=>router.push('/')} className="w-10 relative lg:hidden cursor-pointer flex-shrink-0">
                <Image src="https://logos-world.net/wp-content/uploads/2020/04/Instagram-icon-Logo-2016-present-700x394.png"
                 layout="fill"
                 objectFit='contain'/>
@@ -30,7 +36,7 @@ function Header() {
               </div>
 
               <div className="flex items-center justify-end space-x-4">
-              <HomeIcon className="navBtn"/>
+              <HomeIcon onClick={()=>router.push('/')} className="navBtn"/>
               <MenuIcon className="h-6 md:hidden cursor-pointer"/>
                
               {session ? (
@@ -40,7 +46,7 @@ function Header() {
                   <div className="absolute -top-2 -right-2 text-xs w-5 h-5
                   bg-red-500 rounded-full flex items-center justify-center text-white">12</div>
                   </div>
-                  <PlusCircleIcon className="navBtn"/>
+                  <PlusCircleIcon onClick={()=>setOpen(true)} className="navBtn"/>
                   <UserGroupIcon className="navBtn"/>
                   <HeartIcon className="navBtn"/>
                 <img onClick={signOut} src={session.user.image} className="h-10 w-10 rounded-full cursor-pointer"/>                            

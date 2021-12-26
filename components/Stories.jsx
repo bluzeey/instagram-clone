@@ -20,7 +20,7 @@ function Stories() {
             {session && (
                 <Story img={session.user.image} username={session.user.username}/>
             )}
-            
+        
             
             {suggestions.map((profile,i)=>(
                 <Story key={profile.id} 

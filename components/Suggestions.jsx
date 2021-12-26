@@ -32,12 +32,7 @@ function Suggestions() {
                            <h3 className="text-xs text-gray-400">Works at {profile.company.name}</h3>
                        </div>
                        <button className="text-blue-400 bg-white text-xs font-bold border-b p-2 border-gray-400 rounded">Follow</button>
-                    </div>
-                   
-           
-           
-           
-           
+                    </div>         
             ))}
         </div>
     )
