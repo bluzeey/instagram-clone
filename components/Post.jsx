@@ -11,6 +11,7 @@ import {useSession} from 'next-auth/react'
 import {useState,useEffect} from 'react'
 import {addDoc,collection,serverTimestamp,orderBy,query,onSnapshot} from '@firebase/firestore'
 import {db} from '../firebase'
+import Moment from 'react-moment'
 
 
 function Post({id,username,userImg,img,caption}) {
@@ -30,7 +31,8 @@ function Post({id,username,userImg,img,caption}) {
        })
     }
     const [comments,setComments]=useState([])
-
+    
+    console.log(comments)
     useEffect(()=>onSnapshot(query(collection(db,'posts',id,'comments')),orderBy("timestamp","desc"),
     snapshot=>setComments(snapshot.docs))
     ,[])
@@ -64,7 +66,11 @@ function Post({id,username,userImg,img,caption}) {
                  scrollbar-thumb-black scrollbar-thin">
                     {comments.map(comment=>(
                         <div key={comment.id} className="flex items-center space-x-2 mb-3">
-                           <img className="h-7 rounded-full" src={comment.data().image} alt="" />
+                           <img className="h-7 rounded-full" src={comment.data().userImage} alt="" />
+                           <p className="text-sm flex-1"><span className="font-bold mr-1">{comment.data().username}</span>{comment.data().comment}</p>
+                           <Moment fromNow className="pr-5 text-xs">
+                               {comment.data().timeStamp?.toDate()}
+                           </Moment>
                         </div>
                     ))}
                 </div>

@@ -21,8 +21,7 @@ function Suggestions() {
                 </button>
             </div>
 
-            {
-                suggestions.map((profile,i) =>(
+            {suggestions.map((profile,i) =>(
                     <div key={profile.id} className="flex items-center justify-between mt-3 ">
                        <img className="w-10 h-10 rounded-full border p-[2px]" 
                        src={`https://i.pravatar.cc/150?img=${i}`} alt="profile-image" />
