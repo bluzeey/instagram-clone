@@ -57,7 +57,7 @@ function Post({id,username,userImg,img,caption}) {
     }
 
     return (
-        <div className="bg-white my-7 border rounded-sm">
+        <div className="bg-white my-7 border rounded-sm relative">
             <div className="flex items-center p-5">
                 <img className="rounded-full h-12 w-12 
                 border p-1 mr-3 object-contain" src={userImg} alt="" />
