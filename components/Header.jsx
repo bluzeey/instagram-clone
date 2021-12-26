@@ -4,7 +4,7 @@ import {HomeIcon} from '@heroicons/react/solid'
 import { useSession,signOut,signIn } from "next-auth/react"
 import {useRouter} from 'next/router'
 import {useRecoilState} from "recoil";
-import {modalState} from "../atoms/modalAtom"
+import {modalState} from "../atoms/ModalAtom"
 
 function Header() {
   const router=useRouter()
