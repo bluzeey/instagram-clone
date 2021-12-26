@@ -38,12 +38,12 @@ function Post({id,username,userImg,img,caption}) {
     useEffect(()=>onSnapshot(query(collection(db,'posts',id,'comments')),orderBy("timestamp","desc"),
     snapshot=>setComments(snapshot.docs))
     ,[])
-    useEffect(()=>onSnapshot(query(collection(db,'posts',id,'likes')),orderBy("timestamp","desc"),
+    useEffect(async()=>await onSnapshot(query(collection(db,'posts',id,'likes')),orderBy("timestamp","desc"),
     snapshot=>setLikes(snapshot.docs))
     ,[db,id])
     useEffect(() =>
         setHasLiked(
-            likes?.findIndex(like=>like.id===session.user?.uid)!==-1),
+            likes?.findIndex(like=>like.id===session?.user.uid)!==-1),
     [likes]);
 
     const likePost=async()=>{
